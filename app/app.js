@@ -13,6 +13,7 @@ app.set('port', process.env.PORT || 4001 );
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('app/public'));
+app.use(express.static('app/views'));
 app.use(require('./routes/index'));
 
 
