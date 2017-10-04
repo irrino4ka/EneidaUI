@@ -1,0 +1,19 @@
+{
+  "name": "eneida_ui",
+  "version": "1.0.0",
+  "description": "Web UI forms",
+  "main": "app/app.js",
+  "scripts": {
+    "test": "jasmine",
+    "dev": "nodemon app/app.js"
+  },
+  "author": "Iryna",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.15.5"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  }
+}

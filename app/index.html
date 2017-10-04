@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Eneida</title>
+        <!-- <link rel="stylesheet" type="text/css" href="/style.css">-->
+        <!-- Libraries -->
+        <base href="/"></base>
+    </head>
+    <body ng-app="mainApp">
+        <script src="/angular.min.js"></script>
+
+        <!--script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script-->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-resource.min.js"></script>
+                <script src="/script_app.js"></script>
+        <script src="/module.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <div class="outer">
+
+            <ng-view></ng-view>
+
+            <script type="text/ng-template" id="/index.html">
+                <div class="container" ng-controller="MainCntrl">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <h2 class="feedback-form-title">Add a new row</h2>
+                            <form name="submitRow" class="feedback-form" ng-submit="submit()">
+                                <div class="form-group">
+                                    <textarea type="text" ng-model="text" required="true" name="text" placeholder="Value is required" class="form-control" id="feedback-form-message" rows="6"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-success pull-right">Submit</button>
+                            </form>
+                        </div>
+
+                        <aside class="col-sm-8">
+                            <div class="maincontent feedback">
+                                <h2 class="article-title">Енеїда</h2>
+                                <div class="feedback-messages">
+                                    <table class="table table-striped">
+                                        <tr ng-repeat="row in eneida">
+                                            <td>
+                                                {{row.text}}
+                                            </td>
+                                            <td><div class="media-left"><a ng-href="/{{row.id}}"><button type="button" class="btn btn-info"></span>Edit</button></a></div></td>
+                                            <td><div class="media-left"><button ng-click="delete(row.id)" class="feedback-delete btn  btn-danger">Delete</button></div></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                               
+                            </div>
+                        </aside> 
+                    </div>
+                </div>
+
+            </script>
+
+            <script type="text/ng-template" id="/edit.html">
+                <div class="container" ng-controller="EditEneidaRowController">  
+                    <form ng-submit="submit()">
+                        <div class="form-group" style="padding-top:30px">
+                            <h2>Edit Row:</h2>
+                            <input type="text" required="true" ng-minlength="1" ng-model="row" class="form-control" id="usr" >
+                        </div>
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    </form> 
+                </div>
+            </script>
+        </div>
+       
+    </body>
+</html>
