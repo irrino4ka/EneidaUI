@@ -3,32 +3,36 @@ var eneidaUrl = 'http://localhost:3000/api/eneida/';
 var app = angular.module('mainApp');
 
 app.controller('MainController', function ($scope, $location, $http) {
+
+    console.log(this);
+    var vm = this;
+
     $http.get(eneidaUrl).then(function success(result){
-        $scope.eneida = result.data;
-        $scope.delete = function (id) {
+        vm.eneida = result.data;
+        vm.delete = function (id) {
             $http(
                 {
                     method: 'DELETE',
                     url: eneidaUrl + id
                 })
                 .then(function success() {
-                    $scope.eneida = $scope.eneida.filter(function(e) {return e.id !== id;});//??? model return new data
+                    vm.eneida = vm.eneida.filter(function(e) {return e.id !== id;});//??? model return new data
                 })
         }
 
-        $scope.submit = function() {
+        vm.submit = function() {
             $http(
                 {
                     method: 'POST',
                     url: eneidaUrl,
                     data: {
-                        text : $scope.text
+                        text : vm.text
                     }
                 })
             .then(function success(result){
-                $scope.eneida.push(result.data);
+                vm.eneida.push(result.data);
                 console.log(result.data);
-                $scope.text = "";
+                vm.text = "";
             })
         };
     },function error (result){

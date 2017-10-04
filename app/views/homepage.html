@@ -1,11 +1,11 @@
 <ng-template>
-    <div class="container">
+    <div class="container" ng-controller="MainController as main">
         <div class="row">
             <div class="col-sm-4">
                 <h2 class="feedback-form-title">Add a new row</h2>
-                <form name="submitRow" class="feedback-form" ng-submit="submit()">
+                <form name="submitRow" class="feedback-form" ng-submit="main.submit()">
                     <div class="form-group">
-                        <textarea type="text" ng-model="text" required="true" name="text" placeholder="Value is required" class="form-control" id="feedback-form-message" rows="6"></textarea>
+                        <textarea type="text" ng-model="main.text" required="true" name="text" placeholder="Value is required" class="form-control" id="feedback-form-message" rows="6"></textarea>
                     </div>
                     <button type="submit" class="btn btn-success pull-right">Submit</button>
                 </form>
@@ -16,12 +16,12 @@
                     <h2 class="article-title">Енеїда</h2>
                     <div class="feedback-messages">
                         <table class="table table-striped">
-                            <tr ng-repeat="row in eneida">
+                            <tr ng-repeat="row in main.eneida">
                                 <td>
                                     {{row.text}}
                                 </td>
                                 <td><div class="media-left"><a ng-href="/{{row.id}}"><button type="button" class="btn btn-info"></span>Edit</button></a></div></td>
-                                <td><div class="media-left"><button ng-click="delete(row.id)" class="feedback-delete btn  btn-danger">Delete</button></div></td>
+                                <td><div class="media-left"><button ng-click="main.delete(row.id)" class="feedback-delete btn  btn-danger">Delete</button></div></td>
                             </tr>
                         </table>
                     </div>
