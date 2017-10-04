@@ -7,10 +7,10 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
     $routeProvider
         .when('/', {
             templateUrl: 'homepage.html',
-            controller: 'MainController'
+            controller: 'MainController as cntrl'
         })
         .when('/:id', {
             templateUrl: 'edit.html',
-            controller: 'EditEneidaRowController'
+            controller: 'EditEneidaRowController as cntrl'
         });
 }]);
