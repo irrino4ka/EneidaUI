@@ -1,4 +1,15 @@
 <ng-template>
+<nav class="navbar navbar-inverse">
+<div class="container-fluid">
+    <div class="navbar-header">
+        <form class="navbar-form" role="search">
+        <div class="input-group">
+            <input type="text" class="form-control" ng-model="searchText" placeholder="Search" name="q">
+        </div>
+        </form>
+    </div>
+</div>
+</nav>
     <div class="container" ng-controller="MainController as cntrl">
         <div class="row">
             <div class="col-sm-4">
@@ -16,7 +27,7 @@
                     <h2 class="article-title">Енеїда</h2>
                     <div class="feedback-messages">
                         <table class="table table-striped">
-                            <tr ng-repeat="row in cntrl.eneida">
+                            <tr ng-repeat="row in cntrl.eneida | filter: searchText">
                                 <td>
                                     {{row.text}}
                                 </td>

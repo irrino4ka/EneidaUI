@@ -2,10 +2,11 @@ var eneidaUrl = 'http://localhost:3000/api/eneida/';
 
 var app = angular.module('mainApp');
 
-app.controller('MainController', function ($scope, $location, $http) {
+app.controller('MainController', function ($scope, $location, $http, Eneida) {
 
     console.log(this);
     var vm = this;
+    console.log(Eneida);
 
     $http.get(eneidaUrl).then(function success(result){
         vm.eneida = result.data;
