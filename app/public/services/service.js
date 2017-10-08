@@ -1,31 +1,29 @@
 var app = angular.module('mainApp');
 
- app.factory('eneidaData', ['$http', function($http){
+ app.factory('Eneida', ['$http', function($http){
 
     var eneidaUrl = 'http://localhost:3000/api/eneida/';
-    var eneidaData ={};
+    var Eneida ={};
 
-    eneidaData.findById = function (id){
+    Eneida.findById = function (id){
         return $http.get(eneidaUrl + id);
     };
-    eneidaData.load = function(){
+
+    Eneida.load = function(){
         return $http.get(eneidaUrl);
     };
-    eneidaData.addRow = function(row){
-        return $http.post(eneidaUrl, {
-                    text : row
-                });
-    }
-    eneidaData.updateRow = function(id, row){
-    return $http.put(eneidaUrl + id, {
-                    text : row
-                });
+
+    Eneida.addRow = function(row){
+        return $http.post(eneidaUrl, { text : row });
     }
 
-    eneidaData.deleteRow = function(id){
+    Eneida.updateRow = function(id, row){
+        return $http.put(eneidaUrl + id, { text : row });
+    }
+
+    Eneida.deleteRow = function(id){
         return $http.delete(eneidaUrl+id);
     }
-    return eneidaData;
-
+    return Eneida;
 
  }]);
