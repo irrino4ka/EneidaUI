@@ -18,7 +18,7 @@ var app = angular.module('mainApp');
     }
 
     Eneida.updateRow = function(id, row){
-        return $http.put(eneidaUrl + id, { text : row });
+        return $http.put(eneidaUrl + id, {id: id, text : row });
     }
 
     Eneida.deleteRow = function(id){
