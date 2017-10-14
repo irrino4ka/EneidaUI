@@ -1,4 +1,4 @@
-var eneidaUrl = 'http://localhost:3000/api/eneida/';
+//var eneidaUrl = 'http://localhost:3000/api/eneida/';
 
 var app = angular.module('mainApp');
 

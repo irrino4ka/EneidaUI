@@ -3,7 +3,7 @@ var app = angular.module('mainApp');
  app.factory('Eneida', ['$http', function($http){
 
     //var eneidaUrl = 'http://localhost:3000/api/eneida/';
-    var eneidaUrl = 'https://eneida-api.herokuapp.com/api/eneida';
+    var eneidaUrl = 'https://eneida-api.herokuapp.com/api/eneida/';
     var Eneida ={};
 
     Eneida.findById = function (id){
