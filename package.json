@@ -5,7 +5,8 @@
   "main": "app/app.js",
   "scripts": {
     "test": "karma start karma-unit.conf.js",
-    "dev": "nodemon app/app.js"
+    "dev": "nodemon app/app.js",
+    "start": "node app/app.js"
   },
   "author": "Iryna",
   "license": "ISC",
